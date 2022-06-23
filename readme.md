@@ -67,3 +67,10 @@ Uma boa arquitetura torna o sistema fácil de entender, desenvolver manter e imp
     - Single Responsability Principle, quando estou ferindo?
       - Quando eu fizer uma alteração no código por razões diferentes do seu uso
       - Resista a vontade de reutilizar código, ao tratar de Use Cases
+
+## O fluxo dos Use Cases
+
+- Use Cases contam uma história
+  - Múltiplos passos para representar uma intenção do software
+  - É o orquestrador para alcançar uma intenção
+  -
