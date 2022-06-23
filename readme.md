@@ -26,3 +26,11 @@
 - Limites arquiteturais
 - Percepção sobre regra de negócios
 - Beber água direto da fonte sempre importa
+
+## Pontos importantes sobre arquitetura
+
+- Define o formato que o software terá
+- Arquitetura é sobre divisões de componentes
+- Comunicação entre componentes
+- Uma boa arquitetura vai facilitar o processo de desenvolvimento, deploy, operação e manutenção
+- A estratégia por traz da facilitação é deixar o máximo possível de opções abertas, pelo máximo de tempo possível. "Robert C. Martin"
