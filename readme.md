@@ -47,3 +47,23 @@ Uma boa arquitetura torna o sistema fácil de entender, desenvolver manter e imp
 
 - Regras de negócio trazem o real valor para o software
 - Detalhes ajudam a suportar as regras
+- Detalhes não devem impactar nas regras de negócio
+- Frameworks, banco de dados, apis, não devem impactar nas regras
+  - São detalhes, não devem afetar as regras de negócios
+
+## Casos de uso
+
+- Representam intenções
+- Clareza de cada comportamento do software
+- Detalhes não devem impactar nas regras de negócio
+- Frameworks, banco de dados, apis, não devem impactar nas regras
+
+### Use Cases vs Single Responsability Principle
+
+- Temos a tendência de reaproveitar use cases por serem muito parecidos
+- Exemplo
+  - Alterar vs Inserir
+    - Ambos consultam se o registro existe, persistem dados. Mas são Use Cases diferentes. Por que?
+    - Single Responsability Principle, quando estou ferindo?
+      - Quando eu fizer uma alteração no código por razões diferentes do seu uso
+      - Resista a vontade de reutilizar código, ao tratar de Use Cases
