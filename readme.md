@@ -34,3 +34,16 @@
 - Comunicação entre componentes
 - Uma boa arquitetura vai facilitar o processo de desenvolvimento, deploy, operação e manutenção
 - A estratégia por traz da facilitação é deixar o máximo possível de opções abertas, pelo máximo de tempo possível. "Robert C. Martin"
+
+## Mantenha opções abertas
+
+O objetivo principal da arquitetura é dar suporte ao ciclo de vida do sistema.
+
+Uma boa arquitetura torna o sistema fácil de entender, desenvolver manter e implantar. O objetivo final é minimizar o custo de vida útil do sistema e maximizar a produtividade do programador. "Robert C. Martin. Clean Architecture (p. 137)"
+
+**Keep Options Open**
+
+### Regras vs Detalhes
+
+- Regras de negócio trazem o real valor para o software
+- Detalhes ajudam a suportar as regras
