@@ -73,4 +73,8 @@ Uma boa arquitetura torna o sistema fácil de entender, desenvolver manter e imp
 - Use Cases contam uma história
   - Múltiplos passos para representar uma intenção do software
   - É o orquestrador para alcançar uma intenção
-  -
+
+## Limites arquiteturais
+
+Tudo que não impacta diretamente nas regras de negócio deve estar em um limite arquitetural diferente.
+Ex: Não será o frontend, banco de dados ou framework que mudarão as regras de negócio
