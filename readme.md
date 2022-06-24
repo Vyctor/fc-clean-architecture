@@ -78,3 +78,12 @@ Uma boa arquitetura torna o sistema fácil de entender, desenvolver manter e imp
 
 Tudo que não impacta diretamente nas regras de negócio deve estar em um limite arquitetural diferente.
 Ex: Não será o frontend, banco de dados ou framework que mudarão as regras de negócio
+
+## Input vs Output
+
+- No final do dia, tudo se resume a um Input que retorna um Output
+  - Exemplo:
+    - Criar um pedido
+      - Dados do pedido <- Input
+      - Pedido criado -> dados de retorno do pedido, output
+- Simplifique seu raciocínio ao criar um software sempre pensando em Input e Output
