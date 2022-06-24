@@ -5,10 +5,11 @@ type Customer = {
     state: string;
     city: string;
     street: string;
-    number: string;
+    number: number;
     zip: string;
   };
 };
+
 export interface OutputListCustomerDTO {
-  customers: Customer[];
+  customers: Array<Customer>;
 }
