@@ -7,7 +7,7 @@ import FindCustomerUseCase from './find-customer.usecase';
 
 let sequelize: Sequelize;
 
-describe('Test find customer use case', () => {
+describe('Integration test find customer use case', () => {
   beforeEach(async () => {
     sequelize = new Sequelize({
       dialect: 'sqlite',
@@ -32,25 +32,25 @@ describe('Test find customer use case', () => {
     const address = new Address('Street', 1, 'City', 'State', 'Zip');
     customer.address = address;
 
-    const customerCreated = await customerRepository.create(customer);
+    await customerRepository.create(customer);
 
     const input = {
       id: '1',
     };
 
     const expectedOutput = {
-      id: '123',
+      id: '1',
       name: 'John Doe',
       address: {
         street: 'Street',
         number: 1,
         city: 'City',
-        state: 'State',
         zip: 'Zip',
       },
+      active: false,
     };
 
-    const useCaseResult = usecase.execute(input);
+    const useCaseResult = await usecase.execute(input);
 
     expect(useCaseResult).toEqual(expectedOutput);
   });
