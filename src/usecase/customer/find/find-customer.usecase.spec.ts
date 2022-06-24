@@ -3,9 +3,11 @@ import CustomerModel from '../../../infra/customer/repository/sequelize/customer
 import CustomerRepository from '../../../infra/customer/repository/sequelize/customer-repository';
 import Customer from '../../../domain/customer/entity/customer';
 import Address from '../../../domain/customer/value-object/address';
-describe('Test find customer use case', async () => {
-  let sequelize: Sequelize;
+import FindCustomerUseCase from './find-customer.usecase';
 
+let sequelize: Sequelize;
+
+describe('Test find customer use case', () => {
   beforeEach(async () => {
     sequelize = new Sequelize({
       dialect: 'sqlite',
@@ -29,7 +31,8 @@ describe('Test find customer use case', async () => {
     const customer = new Customer('1', 'John Doe');
     const address = new Address('Street', 1, 'City', 'State', 'Zip');
     customer.address = address;
-    await customerRepository.create(customer);
+
+    const customerCreated = await customerRepository.create(customer);
 
     const input = {
       id: '1',

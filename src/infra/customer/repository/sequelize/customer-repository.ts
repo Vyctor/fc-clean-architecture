@@ -65,6 +65,7 @@ class CustomerRepository implements CustomerRepositoryInterface {
 
       return customer;
     } catch (error) {
+      console.log('error: ', error);
       throw new Error('Customer not found');
     }
   }
