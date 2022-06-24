@@ -43,7 +43,7 @@ export default class Address {
     if (!this.street || this.street.length === 0) {
       throw new Error('Street is required');
     }
-    if (!this.city && this.city.length === 0) {
+    if (!this.city || this.city.length === 0) {
       throw new Error('City is required');
     }
     if (!this.state || this.state.length === 0) {
