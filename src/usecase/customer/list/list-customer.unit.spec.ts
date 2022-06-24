@@ -23,9 +23,6 @@ describe('Unit test for list customer use case', () => {
 
     const output = await usecase.execute();
 
-    expect(output).toEqual({
-      customers: [customerOne, customerTwo],
-    });
     expect(output.customers.length).toBe(2);
     expect(output.customers[0].id).toBe(customerOne.id);
     expect(output.customers[0].name).toBe(customerOne.name);
