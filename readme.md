@@ -97,3 +97,10 @@ Ex: Não será o frontend, banco de dados ou framework que mudarão as regras de
 - Não possui comportamento
 - Não faz nada
 - Normalmente cada use case possui seu dto de input e output
+
+## Presenters
+
+- são objetos de transformação
+- Adequa o DTO de output no formato correto para entregar o resultado
+- Lembrando:
+  - Um sistema pode ter diversos formatos de entrega (XML, JSON, Protobuf, GraphQL, CLI)
