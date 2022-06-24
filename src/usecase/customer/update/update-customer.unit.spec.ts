@@ -41,7 +41,6 @@ describe('Unit test for customer update usecase', () => {
         zip: input.address.zip,
         state: input.address.state,
       },
-      active: false,
     };
 
     const useCaseResult = await usecase.execute(input);
