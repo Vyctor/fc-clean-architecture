@@ -5,6 +5,7 @@ export interface InputCreateCustomerDTO {
     number: number;
     city: string;
     zip: string;
+    state: string;
   };
 }
 
@@ -16,5 +17,7 @@ export interface OutputCreateCustomerDTO {
     number: number;
     city: string;
     zip: string;
+    state: string;
   };
+  isActive: boolean;
 }

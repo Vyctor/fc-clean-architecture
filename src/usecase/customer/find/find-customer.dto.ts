@@ -10,6 +10,7 @@ export interface OutputFindCustomerDTO {
     city: string;
     number: number;
     zip: string;
+    state: string;
   };
   active: boolean;
 }

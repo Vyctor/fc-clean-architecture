@@ -7,6 +7,7 @@ const input = {
     number: 1,
     city: 'City',
     zip: 'Zip',
+    state: 'State',
   },
 };
 
@@ -33,6 +34,7 @@ describe('Unit test create customer use case', () => {
         number: input.address.number,
         city: input.address.city,
         zip: input.address.zip,
+        state: input.address.state,
       },
       active: false,
     };
