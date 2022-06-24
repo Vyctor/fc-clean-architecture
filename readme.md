@@ -104,3 +104,12 @@ Ex: Não será o frontend, banco de dados ou framework que mudarão as regras de
 - Adequa o DTO de output no formato correto para entregar o resultado
 - Lembrando:
   - Um sistema pode ter diversos formatos de entrega (XML, JSON, Protobuf, GraphQL, CLI)
+
+## Entities vs DDD
+
+- Entities da Clean Arch são diferentes do DDD
+- Clean ARch define Entity como camada de regras de negócio
+- Elas se aplicam a qualquer situação
+- Não há definição explícita de como se criar entities
+- Normalmente utilizamos táticas do DDD
+- Entities = Agregados + Domain Services
