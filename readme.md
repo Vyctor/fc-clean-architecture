@@ -87,3 +87,13 @@ Ex: Não será o frontend, banco de dados ou framework que mudarão as regras de
       - Dados do pedido <- Input
       - Pedido criado -> dados de retorno do pedido, output
 - Simplifique seu raciocínio ao criar um software sempre pensando em Input e Output
+
+## DTO (Data Transfer Object)
+
+- Trafegar dados entre os limites arquiteturais
+- Objeto anêmico, sem comportamento
+- Contém dados (Input ou Output)
+- Não possui regras de negócio
+- Não possui comportamento
+- Não faz nada
+- Normalmente cada use case possui seu dto de input e output
