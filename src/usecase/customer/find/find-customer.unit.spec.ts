@@ -35,6 +35,7 @@ describe('Unit test find customer use case', () => {
         number: 1,
         city: 'City',
         zip: 'Zip',
+        state: 'State',
       },
       active: false,
     };
@@ -62,6 +63,7 @@ describe('Unit test find customer use case', () => {
         number: 1,
         city: 'City',
         zip: 'Zip',
+        state: 'State',
       },
       active: false,
     };

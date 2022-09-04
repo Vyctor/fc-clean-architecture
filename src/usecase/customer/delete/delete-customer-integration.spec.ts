@@ -1,13 +1,13 @@
 import { Sequelize } from 'sequelize-typescript';
 import CustomerModel from '../../../infra/customer/repository/sequelize/customer.model';
 import CustomerRepository from '../../../infra/customer/repository/sequelize/customer-repository';
-import Customer from '../../../domain/customer/entity/customer';
+import DeleteCustomerUseCase from './delete-customer.usecase';
+import CustomerFactory from '../../../domain/customer/factory/customer.factory';
 import Address from '../../../domain/customer/value-object/address';
-import FindCustomerUseCase from './find-customer.usecase';
 
-let sequelize: Sequelize;
+describe('Integration test delete customer use case', () => {
+  let sequelize: Sequelize;
 
-describe('Integration test find customer use case', () => {
   beforeEach(async () => {
     sequelize = new Sequelize({
       dialect: 'sqlite',
@@ -17,7 +17,6 @@ describe('Integration test find customer use case', () => {
     });
 
     sequelize.addModels([CustomerModel]);
-
     await sequelize.sync();
   });
 
@@ -25,34 +24,18 @@ describe('Integration test find customer use case', () => {
     await sequelize.close();
   });
 
-  it('should find a customer', async () => {
+  it('should delete a customer', async () => {
     const customerRepository = new CustomerRepository();
-    const usecase = new FindCustomerUseCase(customerRepository);
-    const customer = new Customer('1', 'John Doe');
+    const deleteCustomerUseCase = new DeleteCustomerUseCase(customerRepository);
+
     const address = new Address('Street', 1, 'City', 'State', 'Zip');
-    customer.address = address;
+
+    const customer = CustomerFactory.createWithAddress('John Doe', address);
 
     await customerRepository.create(customer);
 
-    const input = {
-      id: '1',
-    };
+    await deleteCustomerUseCase.execute({ id: customer.id });
 
-    const expectedOutput = {
-      id: '1',
-      name: 'John Doe',
-      address: {
-        street: 'Street',
-        number: 1,
-        city: 'City',
-        zip: 'Zip',
-        state: 'State',
-      },
-      active: false,
-    };
-
-    const useCaseResult = await usecase.execute(input);
-
-    expect(useCaseResult).toEqual(expectedOutput);
+    expect(async () => await customerRepository.find(customer.id)).rejects.toThrowError();
   });
 });

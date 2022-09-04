@@ -20,6 +20,7 @@ class FindCustomerUseCase {
         number: customer.address.number,
         city: customer.address.city,
         zip: customer.address.zip,
+        state: customer.address.state,
       },
       active: customer.isActive(),
     };
