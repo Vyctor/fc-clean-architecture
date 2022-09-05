@@ -1,5 +1,4 @@
 import { ValidatorInterface } from '../../shared/validator/validator.interface';
-import Customer from '../entity/customer';
 import * as yup from 'yup';
 import Address from '../value-object/address';
 
