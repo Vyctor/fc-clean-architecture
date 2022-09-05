@@ -5,6 +5,7 @@ import ListCustomerUseCase from '../../../usecase/customer/list/list-customer.us
 import FindCustomerUseCase from '../../../usecase/customer/find/find-customer.usecase';
 import UpdateCustomerUseCase from '../../../usecase/customer/update/update-customer.usecase';
 import DeleteCustomerUseCase from '../../../usecase/customer/delete/delete-customer.usecase';
+import { CustomerPresenter } from '../presenters/customer.presenter';
 
 export const customerRoute = Router();
 
@@ -35,9 +36,12 @@ customerRoute.get('/', async (request: Request, response: Response) => {
   const usecase = new ListCustomerUseCase(new CustomerRepository());
 
   try {
-    const customers = await usecase.execute();
+    const output = await usecase.execute();
 
-    return response.status(200).send(customers);
+    response.format({
+      json: async () => response.status(200).send(output),
+      xml: async () => response.status(200).send(CustomerPresenter.toXML(output)),
+    });
   } catch (error) {
     return response.status(500).send(error);
   }
