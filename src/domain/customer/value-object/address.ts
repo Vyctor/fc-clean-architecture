@@ -1,4 +1,6 @@
-export default class Address {
+import { Entity } from '../../shared/entity/entity.abstract';
+import { NotificationError } from '../../shared/notification/notification.error';
+export default class Address extends Entity {
   private _street: string;
 
   private _city: string;
@@ -30,6 +32,7 @@ export default class Address {
   }
 
   constructor(street: string, number: number, city: string, state: string, zip: string) {
+    super();
     this._street = street;
     this._city = city;
     this._state = state;
@@ -41,16 +44,20 @@ export default class Address {
 
   private validate(): void {
     if (!this.street || this.street.length === 0) {
-      throw new Error('Street is required');
+      throw new Error('Customer: Street is required');
     }
     if (!this.city || this.city.length === 0) {
-      throw new Error('City is required');
+      throw new Error('Customer: City is required');
     }
     if (!this.state || this.state.length === 0) {
-      throw new Error('State is required');
+      throw new Error('Customer: State is required');
     }
     if (!this.zip || this.zip.length === 0) {
-      throw new Error('Zip is required');
+      throw new Error('Customer: Zip is required');
+    }
+
+    if (this.notification.hasErrors()) {
+      throw new NotificationError(this.notification.getErrors());
     }
   }
 

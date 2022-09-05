@@ -7,12 +7,11 @@ import Product from '../../../../domain/product/entity/product';
 import CustomerRepository from '../../../customer/repository/sequelize/customer-repository';
 import CustomerModel from '../../../customer/repository/sequelize/customer.model';
 import ProductRepository from '../../../product/repository/sequelize/product-repository';
- import ProductModel from '../../../product/repository/sequelize/product.model';
+import ProductModel from '../../../product/repository/sequelize/product.model';
 import OrderItemModel from './order-item.model';
- 
+
 import OrderRepository from './order-repository';
 import OrderModel from './order.model';
- 
 
 let sequelize: Sequelize;
 
@@ -193,13 +192,13 @@ describe('Order repository test', () => {
 
     expect(orders).toBeDefined();
     expect(orders).toHaveLength(3);
-    expect(orders).toBeInstanceOf(Array<Order>)
-    expect(orders[0]).toMatchObject(order)
-    expect(orders[1]).toMatchObject(order2)
-    expect(orders[2]).toMatchObject(order3)
+    expect(orders).toBeInstanceOf(Array<Order>);
+    expect(orders[0]).toMatchObject(order);
+    expect(orders[1]).toMatchObject(order2);
+    expect(orders[2]).toMatchObject(order3);
   });
 
-  it("it should be able to delete an order", async () => {
+  it('it should be able to delete an order', async () => {
     const customerRepository = new CustomerRepository();
     const customer = new Customer('123', 'Customer 1');
     const address = new Address('Street', 1, 'City', 'State', '12312323');
@@ -227,5 +226,5 @@ describe('Order repository test', () => {
     const deletedOrder = await orderRepository.find(order.id);
 
     expect(deletedOrder).toBeUndefined();
-  })
+  });
 });

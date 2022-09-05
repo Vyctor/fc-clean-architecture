@@ -2,7 +2,7 @@ import CustomerFactory from '../../../domain/customer/factory/customer.factory';
 import Address from '../../../domain/customer/value-object/address';
 import UpdateCustomerUseCase from './update-customer.usecase';
 
-const customer = CustomerFactory.createWithAddress('John', new Address('Street', 1, 'City', 'State', 'Zip'));
+let customer = CustomerFactory.createWithAddress('John', new Address('Street', 1, 'City', 'State', 'Zip'));
 
 let input = {
   id: customer.id,
@@ -27,7 +27,9 @@ const MockRepository = () => {
 };
 
 describe('Unit test for customer update usecase', () => {
-  beforeEach(() => {
+  afterEach(() => {
+    customer = CustomerFactory.createWithAddress('John', new Address('Street', 1, 'City', 'State', 'Zip'));
+
     input = {
       id: customer.id,
       name: 'John Doe',
@@ -68,16 +70,16 @@ describe('Unit test for customer update usecase', () => {
 
     input.name = null;
 
-    await expect(usecase.execute(input)).rejects.toThrow('Name is required');
+    await expect(usecase.execute(input)).rejects.toThrow('Customer: Name is required');
   });
 
   it('should throw an error when street is missing', async () => {
     const customerRepository = MockRepository();
     const usecase = new UpdateCustomerUseCase(customerRepository);
 
-    input.address.street = null;
+    delete input.address.street;
 
-    await expect(usecase.execute(input)).rejects.toThrow('Street is required');
+    await expect(usecase.execute(input)).rejects.toThrow('Customer: Street is required');
   });
 
   it('should throw an error when city is missing', async () => {
@@ -86,7 +88,7 @@ describe('Unit test for customer update usecase', () => {
 
     input.address.city = null;
 
-    await expect(usecase.execute(input)).rejects.toThrow('City is required');
+    await expect(usecase.execute(input)).rejects.toThrow('Customer: City is required');
   });
 
   it('should throw an error when state is missing', async () => {
@@ -95,7 +97,7 @@ describe('Unit test for customer update usecase', () => {
 
     input.address.state = null;
 
-    await expect(usecase.execute(input)).rejects.toThrow('State is required');
+    await expect(usecase.execute(input)).rejects.toThrow('Customer: State is required');
   });
 
   it('should throw an error when zip is missing', async () => {
@@ -104,6 +106,6 @@ describe('Unit test for customer update usecase', () => {
 
     input.address.zip = null;
 
-    await expect(usecase.execute(input)).rejects.toThrow('Zip is required');
+    await expect(usecase.execute(input)).rejects.toThrow('Customer: Zip is required');
   });
 });
