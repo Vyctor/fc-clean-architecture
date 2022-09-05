@@ -69,7 +69,7 @@ describe('Unit test create customer use case', () => {
     const customerRepository = MockRepository();
     const usecase = new CreateCustomerUseCase(customerRepository);
 
-    input.address.street = null;
+    delete input.address.street;
 
     await expect(usecase.execute(input)).rejects.toThrow('Street is required');
   });
@@ -78,7 +78,7 @@ describe('Unit test create customer use case', () => {
     const customerRepository = MockRepository();
     const usecase = new CreateCustomerUseCase(customerRepository);
 
-    input.address.city = null;
+    delete input.address.city;
 
     await expect(usecase.execute(input)).rejects.toThrow('City is required');
   });
@@ -87,7 +87,7 @@ describe('Unit test create customer use case', () => {
     const customerRepository = MockRepository();
     const usecase = new CreateCustomerUseCase(customerRepository);
 
-    input.address.state = null;
+    delete input.address.state;
 
     await expect(usecase.execute(input)).rejects.toThrow('State is required');
   });
@@ -96,7 +96,7 @@ describe('Unit test create customer use case', () => {
     const customerRepository = MockRepository();
     const usecase = new CreateCustomerUseCase(customerRepository);
 
-    input.address.zip = null;
+    delete input.address.zip;
 
     await expect(usecase.execute(input)).rejects.toThrow('Zip is required');
   });

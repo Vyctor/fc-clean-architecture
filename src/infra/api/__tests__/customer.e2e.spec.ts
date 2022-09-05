@@ -130,16 +130,18 @@ describe('E2E test for customer', () => {
           state: "John Doe's wife's state",
           city: "John Doe's wife's city",
           street: "John Doe's wife's street",
-          number: "John Doe's wife's number",
+          number: 12313,
           zip: "John Doe's wife's zip",
         },
       });
+
+    console.log('customer created', customerUpdated);
 
     expect(customerUpdated.status).toBe(200);
     expect(customerUpdated.body.id).toBe(customerCreated.body.id);
     expect(customerUpdated.body.name).toBe("John Doe's wife");
     expect(customerUpdated.body.address.street).toBe("John Doe's wife's street");
-    expect(customerUpdated.body.address.number).toBe("John Doe's wife's number");
+    expect(customerUpdated.body.address.number).toBe(12313);
     expect(customerUpdated.body.address.city).toBe("John Doe's wife's city");
     expect(customerUpdated.body.address.state).toBe("John Doe's wife's state");
     expect(customerUpdated.body.address.zip).toBe("John Doe's wife's zip");
