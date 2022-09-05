@@ -66,7 +66,7 @@ customerRoute.patch('/:id', async (request: Request, response: Response) => {
 
   try {
     const updateCustomerDto = {
-      id: request.params.id as string,
+      id: request.params.id,
       name: request.body.name,
       address: {
         street: request.body.address.street,
