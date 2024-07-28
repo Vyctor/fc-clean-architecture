@@ -113,3 +113,5 @@ Ex: Não será o frontend, banco de dados ou framework que mudarão as regras de
 - Não há definição explícita de como se criar entities
 - Normalmente utilizamos táticas do DDD
 - Entities = Agregados + Domain Services
+
+## Usando repositório para testar commit com chave gpg
